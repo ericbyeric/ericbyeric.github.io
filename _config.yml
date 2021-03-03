@@ -1,6 +1,6 @@
 # main text of home
-name: John Doe
-bio: A Man who travels the world eating noodles
+name: HyunSoo
+bio: A Man who love camping and coding
 
 # twitter summary info
 description: A blog about technology and stuff related
@@ -35,7 +35,7 @@ disqus:
 
 # if you don't have any of social below, comment the line
 facebook: myfacebook
-twitter: mytwitter
+twitter: mytwitter  
 # instagram: myinstagram
 # pinterest: mypinterest
 # linkedin: mylinkedin
