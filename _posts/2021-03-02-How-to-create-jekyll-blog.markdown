@@ -1,7 +1,7 @@
 ---
 title: "How to create a personal blog with Jekyll"
 layout: post
-date: 2021-03-03 12:00
+date: 2021-03-02 12:00
 tag: 
 - jekyll
 - blog
