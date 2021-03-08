@@ -1,7 +1,7 @@
 ---
-title: "(Android) User Interaction - Clickable images"
+title: "(Android) User Interaction - Input controls"
 layout: post
-date: 2021-03-04 09:00
+date: 2021-03-04 10:00
 tag: 
 - Android 
 - UserExperience
@@ -14,24 +14,28 @@ author: Hyunsoo
 externalLink: false
 ---
 
-## Clickable images:
 
-- The user interface(UI) in android consists of objects called *views*.
-- The **View** class represents the basic building blocks for all UI components.
-- Store the image for the **ImageView** in the **drawables** folder of your project.
+## Input Controls:
+### Main points
+
+- **android:inputType** attribute for **EditText** elements
+    - name, address, single-line, multiple-line, a numeric keypad and etc..
+- add radio buttons and offer a spinner input control
+- use attributes to control the on-screen keyboard appearance, and to set the type of data entry for an **EditText**
+- default check on a radio button
 
 ---
 
 
 ## "Droid Cafe" Example Overview 
-- build a new dessert-ordering app
-- Display a **Toast** message when the user taps an image
-- Tap a shopping-cart button to proceed to the next Activity
+
+- how to use **android:inputType** attribute for **EditText** elements
+    - person's name, address, single-line, multiple-line, a numeric keypad and etc..
+- spinner input control for selecting the label (*Home*, *Work*, *Other*, *Custom*) for the phone number
 
 <br>   
-
-![image](/assets/images/android-tutorial/4-1_clickable_images/dessert-ordering-app.png)
-<figcaption class="caption">Dessert ordering app preview </figcaption>
+![image](/assets/images/android-tutorial/4-2_input_controls/droid-cafe-app.png)
+<figcaption class="caption">Droid Cafe app preview </figcaption>
 
 
 ---
@@ -39,98 +43,82 @@ externalLink: false
 
 ## Required Tasks
 
-* **Task 1**: Add images to the layout
-* **Task 2**: Add onClick methods for images
-* **Task 3**: Change the floating action button 
-* **Task 4**: Launch a second Activity called **OrderActivity**
+* **Task 1**: Experiment with text entry attributes
+* **Task 2**: Use radio buttons
+* **Task 3**: Use a spinner for user choices
+* **Task 4**: 
 
 --- 
 
-### Task 1: Add images to the layout
+### Task 1: Experiment with text entry attributes
 
-1. Start the new project with **Basic Activity**
-2. Add the images
-    - Add the images into **drawable** folder by using the path: *project_name* **> app > src > main > res > drawable**
-    - Drag an **ImageView** to the layout
-3. **ImageView** attribute
-    - **contentDescription**
-        - It might have a warning of *hardcoded text*
-        - Extract the string value
-4. Add the text descriptions
+1. Add an EditText for entering a name
+    - **android:inputType** attribute is set to **textPersonName**
+2. Add a multiple-line EditText
+    - TextView와 EditText의 라인을 맞추려면 baseline들끼리 맞춰주면되
+    - **android:inputType** is set to **textMultiLine**
+3. Use a keypad for phone numbers
+     -**android:inputType** is set to **phone**
+        - this enable to show the numeric keypad
+4. Combine input types in one EditText
+    - ex) android:inputType = "textCapSentences | textMultiLine"
 
-#### Constraint Layout Figure
-![image](/assets/images/android-tutorial/4-1_clickable_images/constraint-layout-1.png)
-<figcaption class="caption">Constraint Layout For ImageView </figcaption>
+#### Layout Figure
+![image](/assets/images/android-tutorial/4-2_input_controls/constraint_layout_inputType_phone.png)
+<figcaption class="caption">Constraint Layout For phone inputType </figcaption>
 <br>
 
-![image](/assets/images/android-tutorial/4-1_clickable_images/constraint-layout-2.png)
-<figcaption class="caption">Constraint Layout For Text Descriptions </figcaption>
+![image](/assets/images/android-tutorial/4-2_input_controls/layout_screen.png)
+<figcaption class="caption">Screen layout </figcaption>
 
 
 ---
 
-### Task 2: Add onClick methods for images
+### Task 2: Use radio buttons
 
-1. Create a Toast method
-    - Use string resources in **strings.xml**
-    - create **displayToast()** method to the end of **MainActivity**
+- 우선 radio button을 왜 사용할까를 생각해야해
+    - Why? -> 유저가 모든 옵션을 나란히 보기를 원할때!
+        - 만약 위의 경우가 아니면, **Spinner**를 사용하면 좋아!
 
-2. Create click handlers
-    - add **showDonutOrder()** and use the previously created **displayToast()** to display **Toast** message
-    - add **showIceCreamOrder()** and **showFroyoOrder()**
+1. Add a RadioGroup and radio buttons
+2. Add the radio button click handler
+    1. create onRadioButtonClicked() method
+    2. 먼저 **displayToast** method 
+{% highlight Java %}
+<RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/delivery_label">
 
-3. Add the onClick attribute
-    - **android:onClick** to ***showDonutOrder()***, ***showIceCreamOrder()*** and ***showFroyoOrder()***
-<br>
+        <RadioButton
+            android:id="@+id/sameday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="Same day messenger service" />
 
-{% highlight html %}
-    <string name="donut_order_message">You ordered a donut.</string>
-    <string name="ice_cream_order_message">You ordered an ice cream sandwich.</string>
-    <string name="froyo_order_message">You ordered a FroYo.</string>
+        <RadioButton
+            android:id="@+id/nextday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="Next day ground delivery" />
+
+        <RadioButton
+            android:id="@+id/pickup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="Pick up" />
+</RadioGroup>
 {% endhighlight %}
-<figcaption class="caption">String resources </figcaption>
+<figcaption class="caption">Adding radio button</figcaption>
 <br>
 
-{% highlight java %}
-    public void displayToast(String message) {
-        Toast.makeText(getApplicationContext(), 
-                            message,
-                            Toast.LENGTH_SHORT)
-                            .show();
-    } 
-{% endhighlight %}
-<figcaption class="caption">displayToast() </figcaption>
-<br>
-
-
-{% highlight java %}
-    /**
-    * Shows a message that the donut image was clicked.
-    */
-    public void showDonutOrder(View view) {
-        displayToast(getString(R.string.donut_order_message));
-    } 
-{% endhighlight %}
-<figcaption class="caption">showDonutOrder() </figcaption>
-<br>
-
-{% highlight java %}
-    /**
-    * Shows a message that the ice cream sandwich image was clicked.
-    */
-    public void showIceCreamOrder(View view) {
-        displayToast(getString(R.string.ice_cream_order_message));
-    }
-
-    /**
-    * Shows a message that the froyo image was clicked.
-    */
-    public void showFroyoOrder(View view) {
-        displayToast(getString(R.string.froyo_order_message));
-    }
-{% endhighlight %}
-<figcaption class="caption">showIceCreamOrder() and showFroyoOrder() </figcaption>
-<br>
 
 
 ---
