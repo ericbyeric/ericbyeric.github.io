@@ -255,6 +255,7 @@ public int getCount() {
 
 6-1. add the following code inside the **onCreate()** in MainActivity
 - (내 코드에서는 Toolbar module을 지원을 안했음 ㅠㅠ 왜인지 한번 알아볼것..!)
+    - 알아보니 **androidx.appcompat.widget.Toolbar** 모듈을 사용해야함
 {% highlight java %}
 protected void onCreate(Bundle savedInstanceState) {
     // ... Code inside onCreate() method
