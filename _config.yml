@@ -41,16 +41,16 @@ twitter: mytwitter
 # linkedin: mylinkedin
 # youtube: myyoutube
 # spotify: myspotify
-github: https://github.com/ericbyeric?tab=repositories
+github: /ericbyeric?tab=repositories
 # gitlab: mygitlab
 # lastfm: mylastfm
 # stackoverflow: 7044681/mystackoverflow
 # quora: userquora
 # reddit: username
-medium: medium
+#medium: medium
 # vimeo: myvimeo
 # lanyrd: mylanyrd
-email: myemail@gmail.com
+email: khsoo9312@gmail.com
 
 authors:
   johndoe:
