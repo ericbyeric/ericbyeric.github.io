@@ -144,7 +144,7 @@ implementation 'com.android.support:design:26.1.0'
 #### 3. Create a class and layout for each fragment
 3-1. create three blank **Fragment** in **com.example.android.tabexperiment**
 - name as *TabFragment1.xml*, *TabFragment2.xml* and *TabFragment3.xml*
-- Each fragment is created with its class definition set to setend **Fragment**
+- Each fragment is created with its class definition set to extend **Fragment**
 - Also, each **Fragment** inflates the layout associated with the screen
 
 {% highlight java %}
@@ -169,6 +169,7 @@ public class TabFragment1 extends Fragment {
 
 #### 4. Edit the fragment layout
 4-1. in each **Fragment** layout XML, change the **FrameLayout** to **RelativeLayout**
+
 4-2. Change the **TextView** text and set the **layout_width** and **layout_height** to wrap_content in each fragment xml file
 
 #### 5. Add a PagerAdapter [중요!]
