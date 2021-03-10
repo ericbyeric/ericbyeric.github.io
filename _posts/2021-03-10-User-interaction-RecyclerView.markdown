@@ -14,6 +14,8 @@ author: Hyunsoo
 externalLink: false
 ---
 
+
+
 ## RecyclerView:
 
 - Using **ScrollView** to scroll **View** or **ViewGroup** is easy to use, but not recommended for long, scrollable lists
