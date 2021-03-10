@@ -59,7 +59,8 @@ externalLink: false
 <activity android:name=".OrderActivity"/>
 
 // To
-<activity android:name="com.example.android.droidcafeinput.OrderActivity"
+<!-- <activity android:name="com.example.android.droidcafeinput.OrderActivity" -->
+<activity android:name=".OrderActivity"
     android:label="Order Activity"
     android:parentActivityName=".MainActivity">
     <meta-data android:name="android.support.PARENT_ACTIVITY"
