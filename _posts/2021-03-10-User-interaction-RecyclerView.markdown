@@ -100,7 +100,7 @@ for (int i = 0; i < 20; i++) {
 
 #### 2.1 Modify the layout in content_main.xml
 - Replace the entire **TextView** element with the following in *content_main.xml*
-
+- (나는 androidx.recyclerview.widget.RecyclerView 이걸 사용함, 밑에 모듈이 작동안해서.. )
 
 {% highlight java %}
 <android.support.v7.widget.RecyclerView
@@ -122,6 +122,7 @@ for (int i = 0; i < 20; i++) {
 #### 2.3 Create a style from the TextView attributes
 - Right-click the **TextView**, and choose **Refactor > Extract > Style**
     - (문제는 내 컴퓨터에 이 Extract이라는 옵션이 안나와.. 중요한건 아니지만..)
+    - style attribute를 한번에 묶을 수 있다는게 중요한거야
 <br>
 
 #### 2.4 Create an adapter (중요!)
@@ -186,7 +187,7 @@ public WordViewHolder(View itemView, WordListAdapter adapter) {
 
 #### 2.6 Storing your data in the adapter
 - **adapter**가 데이터들을 가지고 있게 만들어 줘야해
-    - **WordListAdapter**의 constructor에서 word list를 기존 데이터 (MainActivity.java의 mWordlist Linkedlist)를 initialize해줘야되
+    - **WordListAdapter**의 constructor에서 word list를 기존 데이터 (MainActivity.java의 mWordlist Linkedlist)로 initialize해줘야되
 <br>
 
 - **adapter**가 데이터를 가지고 있으려고 *private linked list*를 **WordListAdapter**에 만들어줘
